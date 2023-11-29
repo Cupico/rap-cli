@@ -8,8 +8,12 @@ const ArtistGameCard = ({ name, auditeurs, img, otherAudtieurs, selectedElement 
         <div className="flex flex-col items-center pb-10">
           <Image
             className="w-40 h-40 mb-3 rounded-full shadow-lg"
+            width={160}
+            height={160}
             src={img}
-            alt="Bonnie image"
+            // width={0}
+            // height={0}
+            alt=""
           />
           <h5 className="mb-1 text-2xl font-medium text-white">
             {name}

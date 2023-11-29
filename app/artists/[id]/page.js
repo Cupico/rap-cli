@@ -28,8 +28,12 @@ export default function AristPage({ params }) {
               <div className="relative">
                 <Image
                   src={artist.img}
-                  className="w-full relative z-10 rounded-xl"
+                  className="relative z-10 rounded-xl"
                   alt=""
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: '100%', height: 'auto' }}
                 />
                 <div className="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
               </div>
@@ -59,9 +63,13 @@ export default function AristPage({ params }) {
         <div>
           <div className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
             <Image
-              className="object-cover object-center w-full h-full rounded-full"
+              className="object-cover object-center rounded-full"
               src={artist.img}
               alt=""
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         </div>
