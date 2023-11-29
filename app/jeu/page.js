@@ -105,16 +105,16 @@ export default function Jeu() {
     setNote((prevState) => prevState + 1);
   };
 
-
   return (
     <div className="px-10 sm:px-24 py-10">
       <h1 className="mt-8 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-black">
-        Qui a le plus{" "}
-        <mark className="px-2 text-white bg-blue-500 rounded">d'auditeurs</mark>{" "}
+        Qui a le plus
+        <span className="px-2 text-white bg-blue-500 rounded">{`d'auditeurs`}</span>
         mensuels ?
       </h1>
+
       <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
-        En se basant sur le nombre d'auditeurs mensuel de spotify.
+        En se basant sur le nombre {`d'auditeurs`} mensuel de spotify.
       </p>
 
       <div className="w-full mt-10">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const ArtistCard = ({ e, pathname }) => {
   return (
@@ -6,7 +7,7 @@ const ArtistCard = ({ e, pathname }) => {
         className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border"
       >
         <div className="relative min-h-56 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
-          <img
+          <Image
             src={e.img}
             alt="img-blur-shadow"
             layout="fill"

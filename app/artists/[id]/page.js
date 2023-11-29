@@ -1,20 +1,23 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback} from "react";
 import { apiRequest } from "../../../api/api";
+import Image from "next/image";
 
 export default function AristPage({ params }) {
   const [artist, setArtist] = useState({});
 
 
 
-  const getSpecificArtist = async () => {
+  const getSpecificArtist = useCallback(([]) => {async () => {
     const artist = await apiRequest("get", `/artists/${params.id}`);
     setArtist(artist.data);
   };
+})
 
   useEffect(() => {
     getSpecificArtist();
-  }, []);
+    
+  }, [getSpecificArtist]);
 
   return (
     <main className="">
@@ -23,7 +26,7 @@ export default function AristPage({ params }) {
           <div className="md:flex items-center -mx-10">
             <div className="w-full md:w-1/2 px-10 mb-10 md:mb-0">
               <div className="relative">
-                <img
+                <Image
                   src={artist.img}
                   className="w-full relative z-10 rounded-xl"
                   alt=""
@@ -55,9 +58,10 @@ export default function AristPage({ params }) {
       <div className="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
         <div>
           <div className="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
-            <img
+            <Image
               className="object-cover object-center w-full h-full rounded-full"
               src={artist.img}
+              alt=""
             />
           </div>
         </div>
