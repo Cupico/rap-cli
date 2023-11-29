@@ -107,9 +107,9 @@ export default function Jeu() {
 
   return (
     <div className="px-10 sm:px-24 py-10">
-      <h1 className="mt-8 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-black">
+      <h1 className="mt-8 mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 sm:text-5xl lg:text-6xl text-black">
         Qui a le plus
-        <span className="px-2 text-white bg-blue-500 rounded">{`d'auditeurs`}</span>
+        <span className="mx-1 px-2 text-white bg-blue-500 rounded">{`d'auditeurs`}</span>
         mensuels ?
       </h1>
 

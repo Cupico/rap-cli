@@ -4,6 +4,7 @@ import { apiRequest } from "../api/api";
 import ArtistCard from "../components/ArtistCard";
 import Pagination from "@/components/Pagination";
 import Search from "@/components/Search";
+import Link from "next/link";
 
 export default function Artists() {
   const [artists, setArtists] = useState([]);
@@ -12,7 +13,9 @@ export default function Artists() {
 
   const getArtists = async (query) => {
     const artists = await apiRequest("get", `/artists?${query}`);
-    const response = artists.data.artists ? artists.data?.artists : artists.data
+    const response = artists.data.artists
+      ? artists.data?.artists
+      : artists.data;
     setArtists(response);
     setTotalPages(artists.data.totalPages);
   };
@@ -29,11 +32,14 @@ export default function Artists() {
         <Search getArtists={getArtists} setPage={setPage} />
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-20">
-        {artists.length > 0 && artists.map((e, i) => (
-          <div key={i}>
-            <ArtistCard e={e} pathname={"artists"} />
-          </div>
-        ))}
+        {artists.length > 0 &&
+          artists.map((e, i) => (
+            <div key={i}>
+              <Link href={`artists/${e.rap_genius_id}`}>
+                <ArtistCard e={e} pathname={"artists"} />
+              </Link>
+            </div>
+          ))}
       </div>
 
       <Pagination totalPages={totalPages} setPage={setPage} page={page} />
