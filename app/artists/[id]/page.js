@@ -1,22 +1,18 @@
 "use client";
-import { useEffect, useState, useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 import { apiRequest } from "../../../api/api";
 import Image from "next/image";
 
 export default function AristPage({ params }) {
   const [artist, setArtist] = useState({});
 
-
-
-  const getSpecificArtist = useCallback(([]) => {async () => {
+  const getSpecificArtist = async () => {
     const artist = await apiRequest("get", `/artists/${params.id}`);
     setArtist(artist.data);
   };
-})
 
   useEffect(() => {
     getSpecificArtist();
-    
   }, [getSpecificArtist]);
 
   return (
@@ -33,7 +29,7 @@ export default function AristPage({ params }) {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  style={{ width: '100%', height: 'auto' }}
+                  style={{ width: "100%", height: "auto" }}
                 />
                 <div className="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
               </div>
@@ -69,7 +65,7 @@ export default function AristPage({ params }) {
               width={0}
               height={0}
               sizes="100vw"
-              style={{ width: '100%', height: 'auto' }}
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
         </div>
